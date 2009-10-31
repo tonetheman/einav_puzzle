@@ -36,6 +36,10 @@ struct board {
 			total += b[index][i];
 		}	
 	}
+	int sum_rows() {
+		return
+		sum_row(0) + sum_row(1) + sum_row(2);
+	}
 	void flip_row(int index) {
 		for(int i=0;i<COLS;i++) {
 			b[index][i] = b[index][i] * -1;
@@ -48,11 +52,8 @@ int main() {
 	board b;
 	b.set(0,0,33); b.set(0,1,30); b.set(0,2,-10);
 	b.set(1,0,-16); b.set(1,1,19); b.set(1,2,9);
-	b.set(2,0,-17); b.set(2,1,12); b.set(2,2,-14);
+	b.set(2,0,-17); b.set(2,1,-12); b.set(2,2,-14);
 
-	cout << b.sum() << endl;
-
-	b.flip_row(2);
-	cout << b.sum() << endl;
+	cout << b.sum_rows() << endl;
 }
 
